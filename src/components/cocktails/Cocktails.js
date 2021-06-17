@@ -3,16 +3,24 @@ import axios from 'axios'
 
 
 const Cocktails = () => {
-  // const [cocktails, setCocktails] = useState()
+  const [cocktails, setCocktails] = useState()
+  const [hasError, setHasError] = useState(false)
+
 
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s')
-      console.log('response', response.data.drinks)
+      try {
+        const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s')
+        setCocktails(response)
+      } catch (err) {
+        setHasError(true)
+      }
     }
     getData()
   }, [])
-  
+
+
+  console.log('cocktails', cocktails)
   return (
     <section className="hero is-fullheight-with-navbar is-primary">
       <div className="hero-body">
@@ -23,8 +31,9 @@ const Cocktails = () => {
         </div>
       </div>
     </section>
-    
+
   )
 }
 
 export default Cocktails
+

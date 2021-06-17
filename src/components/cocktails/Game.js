@@ -6,13 +6,11 @@ const Game = () => {
   const [cocktail2, setCocktail2] = useState('')
   const [cocktail3, setCocktail3] = useState('')
   const [cocktail4, setCocktail4] = useState('')
-  const [cocktailArray, setCocktailArray] = useState([])
-
 
   const [hasError, setHasError] = useState(false)
 
 
-  // Create array piece of state. Pass in drink name on each run of try-catch. Randomise array. Populate buttons from array. 
+  // Create array piece of state. Pass in drink name on each run of try-catch. Randomise array. Populate buttons from array.                  
 
   useEffect(() => {
     const getData = async () => {
@@ -20,64 +18,76 @@ const Game = () => {
       try {
         const cocktailData = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
         setCocktail(cocktailData.data.drinks[0])
-        const newCocktail = [...cocktailArray, [cocktailData.data.drinks[0].strDrink]]
-        console.log('newCocktail', newCocktail)
-        setCocktailArray(newCocktail)
+        // const newCocktail = [cocktailData.data.drinks[0].strDrink]
+        // newArray = [...newArray, newCocktail]
+        // console.log('newCocktail', newCocktail)
+        // setCocktailArray(newCocktail)
       } catch (err) {
         setHasError(true)
       }
       try {
         const cocktailData = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
         setCocktail2(cocktailData.data.drinks[0])
-        const newCocktail = [...cocktailArray, [cocktailData.data.drinks[0].strDrink]]
-        console.log('newCocktail', newCocktail)
-        setCocktailArray(newCocktail)
+        // const newCocktail2 = [cocktailData.data.drinks[0].strDrink]
+        // newArray = [...newArray, newCocktail2]
+        // console.log('newCocktail', newCocktail)
+        // setCocktailArray(newCocktail)
       } catch (err) {
         setHasError(true)
       }
       try {
         const cocktailData = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
         setCocktail3(cocktailData.data.drinks[0])
-        const newCocktail = { ...cocktailArray, [cocktail3.strDrink]: '' }
-        setCocktailArray(newCocktail)
+        // const newCocktail3 = [cocktailData.data.drinks[0].strDrink]
+        // newArray = [...newArray, newCocktail3]
+        // setCocktailArray(newCocktail)
       } catch (err) {
         setHasError(true)
       }
       try {
         const cocktailData = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
         setCocktail4(cocktailData.data.drinks[0])
-        const newCocktail = { ...cocktailArray, [cocktail4.strDrink]: '' }
-        setCocktailArray(newCocktail)
+        // const newCocktail4 = [cocktailData.data.drinks[0].strDrink]
+        // newArray = [...newArray, newCocktail4]
+        // setCocktailArray(newCocktail)
       } catch (err) {
         setHasError(true)
       }
     }
     getData()
+
   }, [])
-  // console.log('cocktail 1 name', cocktail.strDrink)
-  // console.log('cocktail 2 name', cocktail2.strDrink)
-  // console.log('cocktail 3 name', cocktail3.strDrink)
-  // console.log('cocktail 4 name', cocktail4.strDrink)
-  // console.log('cocktail Array', cocktailArray)
-  // console.log('cocktail image', cocktail.strDrinkThumb)
-  // console.log('cocktail Ingredient 1', cocktail.strIngredient1)
-  // console.log('cocktail Ingredient 2', cocktail.strIngredient2)
-  // console.log('cocktail Ingredient 3', cocktail.strIngredient3)
-  // console.log('cocktail Ingredient 4', cocktail.strIngredient4)
-  // console.log('cocktail Ingredient 5', cocktail.strIngredient5)
+
+  const newcocktail = cocktail.strDrink
+  const newcocktail2 = cocktail2.strDrink
+  const newcocktail3 = cocktail3.strDrink
+  const newcocktail4 = cocktail4.strDrink
+  const newArray = [newcocktail, newcocktail2, newcocktail3, newcocktail4]
+  newArray.sort()
+  console.log(newArray)
+
+
+  const handleClick = (event) => {
+    if (newcocktail === event.target.innerText) {
+      console.log('You are right!')
+    } else {
+      console.log('No that is wrong')
+    }
+  }
+
+
 
 
 
   return (
     <section className="section">
       <div className="container">
-
         <div className="column is-one-quarter-desktop is-one-third-tablet">
           <div className="card">
-            <button>{cocktail.strDrink}</button>
-            <button>{cocktail2.strDrink}</button>
-            <button>{cocktail3.strDrink}</button>
-            <button>{cocktail4.strDrink}</button>
+            <button onClick={handleClick}>{newArray[0]}</button>
+            <button onClick={handleClick}>{newArray[1]}</button>
+            <button onClick={handleClick}>{newArray[2]}</button>
+            <button onClick={handleClick}>{newArray[3]}</button>
             <div className="card-header">
               <div className="card-header-title">What is this cocktail?</div>
             </div>
@@ -102,3 +112,4 @@ const Game = () => {
 }
 
 export default Game
+
