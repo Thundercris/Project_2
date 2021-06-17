@@ -13,9 +13,6 @@ const Cocktails = () => {
     getData()
   }, [])
   
-
-
-
   return (
     <section className="hero is-fullheight-with-navbar is-primary">
       <div className="hero-body">
