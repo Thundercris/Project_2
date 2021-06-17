@@ -6,7 +6,7 @@ const Game = () => {
   const [cocktail2, setCocktail2] = useState('')
   const [cocktail3, setCocktail3] = useState('')
   const [cocktail4, setCocktail4] = useState('')
-
+  const [answer, setAnswer] = useState('Choose your answer')
   const [hasError, setHasError] = useState(false)
 
 
@@ -65,17 +65,20 @@ const Game = () => {
   const newArray = [newcocktail, newcocktail2, newcocktail3, newcocktail4]
   newArray.sort()
   console.log(newArray)
-
+  
 
   const handleClick = (event) => {
     if (newcocktail === event.target.innerText) {
-      console.log('You are right!')
+      setAnswer('You are right!')
     } else {
-      console.log('No that is wrong')
+      setAnswer(`You are wrong! It is actually a ${newcocktail}. Next question in 3, 2, 1...`) 
+      // setTimeout(refreshPage(), 3000)
     }
   }
 
-
+  const refreshPage = () => {
+    window.location.reload()
+  }
 
 
 
@@ -105,6 +108,10 @@ const Game = () => {
               <h5>{cocktail.strIngredient5}</h5>
             </div>
           </div>
+        </div>
+        <div className="result">{answer}</div>
+        <div>
+          <button onClick={refreshPage}>Next Question</button>
         </div>
       </div>
     </section>
