@@ -39,11 +39,11 @@ const CocktailShow = () => {
                 </figure>
               </div>
               <div className="column is-half">
-                <h4 className="title is-4"><span role="img" aria-label="wave">🖐</span> Glass Type</h4>
+                <h4 className="title is-4"><span role="img" aria-label="wave">🍸</span> Glass Type</h4>
                 <hr />
                 <p>{cocktail.strGlass}</p>
                 <hr />
-                <h4 className="title is-4"><span role="img" aria-label="plate">👃</span> Recipe</h4>
+                <h4 className="title is-4"><span role="img" aria-label="plate">🍹</span> Recipe</h4>
                 <p>{cocktail.strMeasure1} {cocktail.strIngredient1}</p>
                 <p>{cocktail.strMeasure2} {cocktail.strIngredient2}</p>
                 <p>{cocktail.strMeasure3} {cocktail.strIngredient3}</p>
@@ -51,7 +51,7 @@ const CocktailShow = () => {
                 <p>{cocktail.strMeasure5} {cocktail.strIngredient5}</p>
                 <p>{cocktail.strMeasure6} {cocktail.strIngredient6}</p>
                 <hr />
-                <h4 className="title is-4"><span role="img" aria-label="globe">🌍</span> Instructions</h4>
+                <h4 className="title is-4"><span role="img" aria-label="globe">🗒</span> Instructions</h4>
                 <hr />
                 <p>{cocktail.strInstructions}</p>
                 <hr />

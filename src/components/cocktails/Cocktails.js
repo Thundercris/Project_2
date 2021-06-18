@@ -43,14 +43,15 @@ const Cocktails = () => {
   return (
     <section className="hero is-fullheight-with-navbar is-primary">
       <div className="hero-body">
-        <div className="container">
-          <div>
+        <div className="container" > 
+        <div className="subtitle is-3 has-text-centered" id="home"> Choose a letter to see those Cocktails 
+          <div >
             {alphabetLetters.map(letter => {
               return <a onClick={handleClick} className="letters" key={letter}>{letter}  </a>
             })
             }
           </div>
-
+          </div>
           <div className="columns is-multiline">
             {cocktailsLetters.map(item => {
               return <CocktailCard key={item.idDrink} {...item}/>
