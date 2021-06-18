@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import CocktailCard from './CocktailCard'
 
 
 const Cocktails = () => {
@@ -32,8 +33,9 @@ const Cocktails = () => {
     } catch (err) {
       console.log(err)
     }
-
   }
+
+  
   console.log('drinkCards', drinkCards)
   console.log('cocktailLetters', cocktailsLetters)
 
@@ -51,16 +53,13 @@ const Cocktails = () => {
 
           <div className="columns is-multiline">
             {cocktailsLetters.map(item => {
-              return <div className="column is-one-quarter-desktop is-one-third-tablet">
-                <p>{item.strDrink}</p>
-                <img src={item.strDrinkThumb} />
-              </div>
+              return <CocktailCard key={item.idDrink} {...item}/>
             })}
-          </div>
-        </div>
+        </div> 
       </div>
-    </section >
-  )
+    </div>
+  </section>
+)
 }
 
 export default Cocktails

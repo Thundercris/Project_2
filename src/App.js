@@ -4,6 +4,7 @@ import Home from './components/common/Home'
 import Navbar from './components/common/Navbar'
 import Game from './components/cocktails/Game'
 import Cocktails from './components/cocktails/Cocktails'
+import CocktailShow from './components/cocktails/CocktailShow'
 
 
 
@@ -12,6 +13,9 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Switch>
+        <Route path="/cocktails/:id">
+          <CocktailShow />
+        </Route>
         <Route path="/Game">
           <Game />
         </Route>

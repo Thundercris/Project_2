@@ -65,15 +65,21 @@ const Game = () => {
   const newArray = [newcocktail, newcocktail2, newcocktail3, newcocktail4]
   newArray.sort()
   console.log(newArray)
-  
+  const buttonSelect = document.querySelectorAll('button')
+
+  const disableButtons = () => {
+    return buttonSelect.forEach(button =>
+      button.disabled = true) 
+    }
+
 
   const handleClick = (event) => {
     if (newcocktail === event.target.innerText) {
       setAnswer('You are right!')
     } else {
       setAnswer(`You are wrong! It is actually a ${newcocktail}. Next question in 3, 2, 1...`) 
-      // setTimeout(refreshPage(), 3000)
     }
+    return disableButtons()
   }
 
   const refreshPage = () => {
@@ -111,7 +117,7 @@ const Game = () => {
         </div>
         <div className="result">{answer}</div>
         <div>
-          <button onClick={refreshPage}>Next Question</button>
+          <a className="button" onClick={refreshPage}>Next Question</a>
         </div>
       </div>
     </section>
