@@ -76,3 +76,7 @@ I also deployed the project using netlify. This gave me the opportunity to learn
 
 * Improve the design of the card’s drink description and the game.
 
+## Team member:
+
+* <a href="https://github.com/mtsolt">Mike Soltysiak</a>
+* <a href="https://github.com/crigrande">Cristina Grande</a>
